@@ -1,0 +1,24 @@
+{
+  "name": "data-processing-cli",
+  "version": "1.0.0",
+  "description": "an interactive command-line application that performs various useful data processing operations",
+  "keywords": [
+    "nodejs",
+    "cli"
+  ],
+  "homepage": "https://github.com/dzichonka/data-processing-cli#readme",
+  "bugs": {
+    "url": "https://github.com/dzichonka/data-processing-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzichonka/data-processing-cli.git"
+  },
+  "license": "ISC",
+  "author": "Anna Vasilevich",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  }
+}
