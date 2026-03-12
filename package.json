@@ -1,7 +1,7 @@
 {
   "name": "data-processing-cli",
   "version": "1.0.0",
-  "description": "an interactive command-line application that performs various useful data processing operations",
+  "description": "An interactive command-line application that performs various useful data processing operations",
   "keywords": [
     "nodejs",
     "cli"
@@ -19,6 +19,8 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
+    "start": "node src/main.js",
+    "dev": "node --watch src/index.js",
     "test": "test"
   }
 }
