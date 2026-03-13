@@ -19,8 +19,6 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "start": "node src/main.js",
-    "dev": "node --watch src/index.js",
-    "test": "test"
+    "start": "node src/main.js"
   }
 }

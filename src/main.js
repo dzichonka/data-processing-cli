@@ -1,13 +1,13 @@
-import { pipeline } from "node:stream/promises";
-import { createReadStream } from "./streams/read.js";
-import { createTransformStream } from "./streams/transform.js";
-import { createWriteStream } from "./streams/write.js";
-
+import os from "node:os";
+import { startRepl } from "./repl.js";
 async function main() {
   try {
-    console.log("TODO: implement me!)");
+    console.log("Welcome to Data Processing CLI!");
+    const currentDir = os.homedir();
+    console.log(`You are currently in ${currentDir}`);
+    startRepl(currentDir);
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("Error:", error);
     process.exit(1);
   }
 }
