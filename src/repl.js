@@ -1,6 +1,7 @@
 import readline from "node:readline";
+import { commandMap, argParser } from "./utils/argParser.js";
 
-export function startRepl(initialDir) {
+export function repl(initialDir) {
   let currentDir = initialDir;
 
   const rl = readline.createInterface({
@@ -20,8 +21,17 @@ export function startRepl(initialDir) {
     }
 
     try {
-      console.log(`Current directory from REPL: ${currentDir}`);
-      console.log(`Command received: ${input}`);
+      const { command, args } = argParser(input);
+
+      const handler = commandMap[command];
+
+      if (!handler) {
+        console.log("Invalid input");
+      } else {
+        currentDir = await handler(currentDir, args);
+      }
+
+      console.log(`You are currently in ${currentDir}`);
     } catch {
       console.log("Operation failed");
     }

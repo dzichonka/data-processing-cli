@@ -1,0 +1,16 @@
+import { cd, ls, up } from "../navigation.js";
+
+export const commandMap = {
+  cd,
+  ls,
+  up,
+};
+
+export function argParser(input) {
+  const parts = input.trim().split(/\s+/);
+
+  const command = parts[0];
+  const args = parts.slice(1);
+
+  return { command, args };
+}
