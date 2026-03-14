@@ -1,10 +1,10 @@
 import { repl } from "./repl.js";
-import url from "node:url";
+import os from "node:os";
 
 async function main() {
   try {
     console.log("Welcome to Data Processing CLI!");
-    const currentDir = url.fileURLToPath(new URL("../", import.meta.url));
+    const currentDir = os.homedir();
     console.log(`You are currently in ${currentDir}`);
     repl(currentDir);
   } catch (error) {

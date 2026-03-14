@@ -29,8 +29,14 @@ export async function ls(currentDir) {
   return currentDir;
 }
 
-export async function cd(currentDir, path) {
-  return pathResolver(currentDir, path);
+export async function cd(currentDir, args) {
+  const target = pathResolver(currentDir, args);
+
+  const stat = await fs.stat(target);
+  if (!stat.isDirectory()) {
+    throw new Error("Not a directory");
+  }
+  return target;
 }
 
 export async function up(currentDir) {

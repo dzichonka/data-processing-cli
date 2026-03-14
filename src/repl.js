@@ -1,5 +1,6 @@
 import readline from "node:readline";
-import { commandMap, argParser } from "./utils/argParser.js";
+import { argParser } from "./utils/argParser.js";
+import { commandMap } from "./dispatcher.js";
 
 export function repl(initialDir) {
   let currentDir = initialDir;
