@@ -29,3 +29,21 @@
 `hash --input file.txt --save`
 
 `hash --input file.txt --algorithm md5 --save`
+
+### <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExajZwZ2Q0Y2Y5djI4YWVnb2ppM2w3am9yZjRmcWo5NXFud285a3k1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/rrasLFSTyi4Th1e8Xo/giphy.gif" width=50> hash-compare examples
+
+`hash-compare --input file.txt --hash file.sha256`
+
+`hash-compare --input file.txt --hash file.md5 --algorithm md5`
+
+### <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWg4ZXBseGNsaW9saG9zNnoyMHc0OHJoYWtnNWhuczJna3BmNWNlbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kGNldrILTzYKV5DvXX/giphy.gif" width=50> encrypt example
+
+`encrypt --input file.txt --output file.txt.enc --password mySecret`
+
+### <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3cwMG13NTJ6czdnZzAzN3JzdTQ4ZWlwNDU0ZnBiODczZDAwMjlyZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/aWnEiVFcvTgIz7MuxG/giphy.gif" width=50> decrypt example
+
+`decrypt --input file.txt.enc --output file.txt --password mySecret`
+
+### <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXhneDJyejBvb21oZDkzMzVzY2x5Z3k2ZnkzdHlzcHBuc2V2Y3Q4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XUA7ZZcBl0McuVqwd8/giphy.gif" width=50> log-stats example
+
+`log-stats --input logs.txt --output stats.json`

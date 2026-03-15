@@ -2,9 +2,19 @@ import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
-import streamPromises from "node:stream/promises";
 import { flagsParser } from "../utils/flagsParser.js";
 import { pathResolver } from "../utils/pathResolver.js";
+
+export async function calculateHash(filePath, algorithm) {
+  const hash = crypto.createHash(algorithm);
+  const stream = fs.createReadStream(filePath);
+
+  for await (const chunk of stream) {
+    hash.update(chunk);
+  }
+
+  return hash.digest("hex");
+}
 
 export async function hash(currentDir, args) {
   const { input, algorithm = "sha256", save } = flagsParser(args);
@@ -19,13 +29,7 @@ export async function hash(currentDir, args) {
   console.log(inputPath);
 
   try {
-    const readStream = fs.createReadStream(inputPath);
-    const hash = crypto.createHash(algorithm);
-
-    await streamPromises.pipeline(readStream, hash);
-
-    const digest = hash.digest("hex");
-
+    const digest = await calculateHash(inputPath, algorithm);
     console.log(`${algorithm}: ${digest}`);
 
     if (save) {
