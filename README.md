@@ -8,8 +8,6 @@
 
 `data-processing-cli/workspace`
 
-`cd IT/Node/data-processing-cli/workspace`
-
 ### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhqY29zNmkycGJzOWFzZWY4cXlrczZ2aGF6cHRubHRtcnhocmhjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NEmydmd0cXFdj4ZH9m/giphy.gif" width=50> csv-to-json example
 
 `csv-to-json --input data.csv --output data.json`
