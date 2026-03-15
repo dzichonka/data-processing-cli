@@ -6,12 +6,9 @@ import { pathResolver } from "../utils/pathResolver.js";
 
 export async function csvToJson(currentDir, args) {
   const { input, output } = flagsParser(args);
-  console.log("csvToJson.js", input, output);
 
   const inputPath = pathResolver(currentDir, [input]);
   const outputPath = pathResolver(currentDir, [output]);
-
-  console.log(inputPath, outputPath);
 
   const readStream = fs.createReadStream(inputPath, { encoding: "utf-8" });
   const writeStream = fs.createWriteStream(outputPath);

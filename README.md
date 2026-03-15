@@ -6,9 +6,9 @@
 
 ### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGlheDhwdWZwOTRhdmw4eWZudXA4NHpzbnE3N2kxNGF3bzRwcTJveCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iAIwyKeZlKBgIpH4TZ/giphy.gif" width=50> way to assets
 
-`data-processing-cli/src/assets`
+`data-processing-cli/workspace`
 
-`cd IT/Node/data-processing-cli/src/assets`
+`cd IT/Node/data-processing-cli/workspace`
 
 ### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhqY29zNmkycGJzOWFzZWY4cXlrczZ2aGF6cHRubHRtcnhocmhjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NEmydmd0cXFdj4ZH9m/giphy.gif" width=50> csv-to-json example
 
@@ -53,3 +53,5 @@
 ### <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXhneDJyejBvb21oZDkzMzVzY2x5Z3k2ZnkzdHlzcHBuc2V2Y3Q4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/XUA7ZZcBl0McuVqwd8/giphy.gif" width=50> log-stats example
 
 `log-stats --input logs.txt --output stats.json`
+
+(use `node --run generate-logs` for log generation)
