@@ -26,7 +26,6 @@ export async function hash(currentDir, args) {
   }
 
   const inputPath = pathResolver(currentDir, [input]);
-  console.log(inputPath);
 
   try {
     const digest = await calculateHash(inputPath, algorithm);

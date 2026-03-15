@@ -2,6 +2,8 @@
 
 ##### If you have any problems with the project, please contact me [telegram](https://t.me/dzichonka/)
 
+[Assignment: Data Processing CLI](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments-v2/02-data-processing-cli/assignment.md)
+
 ### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGlheDhwdWZwOTRhdmw4eWZudXA4NHpzbnE3N2kxNGF3bzRwcTJveCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iAIwyKeZlKBgIpH4TZ/giphy.gif" width=50> way to assets
 
 `data-processing-cli/src/assets`
@@ -30,11 +32,15 @@
 
 `hash --input file.txt --algorithm md5 --save`
 
+`hash --input file.txt --algorithm sha512 --save`
+
 ### <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExajZwZ2Q0Y2Y5djI4YWVnb2ppM2w3am9yZjRmcWo5NXFud285a3k1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/rrasLFSTyi4Th1e8Xo/giphy.gif" width=50> hash-compare examples
 
 `hash-compare --input file.txt --hash file.sha256`
 
 `hash-compare --input file.txt --hash file.md5 --algorithm md5`
+
+`hash-compare --input file.txt --hash file.sha512 --algorithm sha512`
 
 ### <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWg4ZXBseGNsaW9saG9zNnoyMHc0OHJoYWtnNWhuczJna3BmNWNlbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kGNldrILTzYKV5DvXX/giphy.gif" width=50> encrypt example
 
