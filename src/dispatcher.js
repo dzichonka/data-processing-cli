@@ -1,6 +1,7 @@
 import { cd, up, ls } from "./navigation.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
+import { count } from "./commands/count.js";
 
 export const commandMap = {
   cd,
@@ -8,4 +9,5 @@ export const commandMap = {
   ls,
   "csv-to-json": csvToJson,
   "json-to-csv": jsonToCsv,
+  count,
 };

@@ -1,12 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { flagsParser } from "../utils/flagsParser.js";
+import { pathResolver } from "../utils/pathResolver.js";
 
 export async function jsonToCsv(currentDir, args) {
   const { input, output } = flagsParser(args);
 
-  const inputPath = path.resolve(currentDir, input);
-  const outputPath = path.resolve(currentDir, output);
+  const inputPath = pathResolver(currentDir, [input]);
+  const outputPath = pathResolver(currentDir, [output]);
 
   const readStream = fs.createReadStream(inputPath, { encoding: "utf8" });
   const writeStream = fs.createWriteStream(outputPath);
