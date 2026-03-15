@@ -27,3 +27,5 @@
 `hash --input file.txt --algorithm md5`
 
 `hash --input file.txt --save`
+
+`hash --input file.txt --algorithm md5 --save`
