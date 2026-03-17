@@ -11,38 +11,34 @@ export async function decrypt(currentDir, args) {
   const inputPath = pathResolver(currentDir, [input]);
   const outputPath = pathResolver(currentDir, [output]);
 
-  try {
-    const stat = await fsPromises.stat(inputPath);
+  const stat = await fsPromises.stat(inputPath);
 
-    const fd = await fsPromises.open(inputPath, "r");
+  const fd = await fsPromises.open(inputPath, "r");
 
-    const salt = Buffer.alloc(16);
-    const iv = Buffer.alloc(12);
-    const authTag = Buffer.alloc(16);
+  const salt = Buffer.alloc(16);
+  const iv = Buffer.alloc(12);
+  const authTag = Buffer.alloc(16);
 
-    await fd.read(salt, 0, 16, 0);
-    await fd.read(iv, 0, 12, 16);
-    await fd.read(authTag, 0, 16, stat.size - 16);
+  await fd.read(salt, 0, 16, 0);
+  await fd.read(iv, 0, 12, 16);
+  await fd.read(authTag, 0, 16, stat.size - 16);
 
-    await fd.close();
+  await fd.close();
 
-    const key = crypto.scryptSync(password, salt, 32);
+  const key = crypto.scryptSync(password, salt, 32);
 
-    const decipher = crypto.createDecipheriv("aes-256-gcm", key, iv);
+  const decipher = crypto.createDecipheriv("aes-256-gcm", key, iv);
 
-    decipher.setAuthTag(authTag);
+  decipher.setAuthTag(authTag);
 
-    const readStream = fs.createReadStream(inputPath, {
-      start: 28,
-      end: stat.size - 17,
-    });
+  const readStream = fs.createReadStream(inputPath, {
+    start: 28,
+    end: stat.size - 17,
+  });
 
-    const writeStream = fs.createWriteStream(outputPath);
+  const writeStream = fs.createWriteStream(outputPath);
 
-    await streamPromises.pipeline(readStream, decipher, writeStream);
+  await streamPromises.pipeline(readStream, decipher, writeStream);
 
-    return currentDir;
-  } catch {
-    throw new Error("Operation failed");
-  }
+  return currentDir;
 }

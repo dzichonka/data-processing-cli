@@ -18,13 +18,19 @@ export async function ls(currentDir) {
     else files.push(entry.name);
   }
 
-  folders.sort();
+  folders.sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: "base" }),
+  );
   files.sort();
 
   for (const f of folders)
-    console.log(`${f}${" ".repeat(maxLength - f.length)}   [folder]`);
+    console.log(
+      `\x1b[36m${f}\x1b[0m${" ".repeat(maxLength - f.length)}   \x1b[33m[folder]\x1b[0m`,
+    );
   for (const f of files)
-    console.log(`${f}${" ".repeat(maxLength - f.length)}     [file]`);
+    console.log(
+      `\x1b[36m${f}\x1b[0m${" ".repeat(maxLength - f.length)}     \x1b[33m[file]\x1b[0m`,
+    );
 
   return currentDir;
 }
@@ -34,7 +40,7 @@ export async function cd(currentDir, args) {
 
   const stat = await fs.stat(target);
   if (!stat.isDirectory()) {
-    throw new Error("Not a directory");
+    throw new Error("\x1b[31mNot a directory\x1b[0m");
   }
   return target;
 }

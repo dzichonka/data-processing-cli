@@ -1,6 +1,12 @@
 import readline from "node:readline";
 import { argParser } from "./utils/argParser.js";
 import { commandMap } from "./dispatcher.js";
+import {
+  logGoodbye,
+  logFailedOperation,
+  logCurrentDir,
+  logInvalidInput,
+} from "./utils/logs.js";
 
 export function repl(initialDir) {
   let currentDir = initialDir;
@@ -8,7 +14,7 @@ export function repl(initialDir) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    prompt: "> ",
+    prompt: "\x1b[34m> \x1b[0m",
   });
 
   rl.prompt();
@@ -17,7 +23,7 @@ export function repl(initialDir) {
     const input = line.trim();
 
     if (input === ".exit") {
-      console.log("Thank you for using Data Processing CLI!");
+      logGoodbye();
       process.exit(0);
     }
 
@@ -27,26 +33,25 @@ export function repl(initialDir) {
       const handler = commandMap[command];
 
       if (!handler) {
-        console.log("Invalid input");
+        logInvalidInput();
       } else {
         currentDir = await handler(currentDir, args);
       }
-
-      console.log(`You are currently in ${currentDir}`);
+      logCurrentDir(currentDir);
     } catch {
-      console.log("Operation failed");
+      logFailedOperation();
     }
 
     rl.prompt();
   });
 
   process.on("SIGINT", () => {
-    console.log("\nThank you for using Data Processing CLI!");
+    logGoodbye();
     process.exit(0);
   });
 
   rl.on("close", () => {
-    console.log("\nThank you for using Data Processing CLI!");
+    logGoodbye();
     process.exit(0);
   });
 }

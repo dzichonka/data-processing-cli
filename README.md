@@ -8,7 +8,9 @@
 
 `data-processing-cli/workspace`
 
-### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhqY29zNmkycGJzOWFzZWY4cXlrczZ2aGF6cHRubHRtcnhocmhjciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NEmydmd0cXFdj4ZH9m/giphy.gif" width=50> csv-to-json example
+`cd IT/Node/data-processing-cli/workspace`
+
+### <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXpvd3l4MG92eGR0YTlzZWZ0dnowZDY3bTBlb293cXBwd3Uwa2x2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/rwHtbIb83ptNt93i3i/giphy.gif" width=50> csv-to-json example
 
 `csv-to-json --input data.csv --output data.json`
 

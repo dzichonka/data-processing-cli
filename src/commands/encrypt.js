@@ -20,17 +20,13 @@ export async function encrypt(currentDir, args) {
 
   const cipher = crypto.createCipheriv("aes-256-gcm", key, iv);
 
-  try {
-    writeStream.write(salt);
-    writeStream.write(iv);
+  writeStream.write(salt);
+  writeStream.write(iv);
 
-    await streamPromises.pipeline(readStream, cipher, writeStream);
+  await streamPromises.pipeline(readStream, cipher, writeStream);
 
-    const tag = cipher.getAuthTag();
-    fs.appendFileSync(outputPath, tag);
+  const tag = cipher.getAuthTag();
+  fs.appendFileSync(outputPath, tag);
 
-    return currentDir;
-  } catch {
-    throw new Error("Operation failed");
-  }
+  return currentDir;
 }
