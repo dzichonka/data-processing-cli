@@ -45,10 +45,10 @@ export function repl(initialDir) {
     rl.prompt();
   });
 
-  process.on("SIGINT", () => {
-    logGoodbye();
-    process.exit(0);
-  });
+  // process.on("SIGINT", () => {
+  //   logGoodbye();
+  //   process.exit(0);
+  // });
 
   rl.on("close", () => {
     logGoodbye();

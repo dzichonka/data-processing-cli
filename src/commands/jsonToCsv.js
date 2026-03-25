@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import path from "node:path";
 import { flagsParser } from "../utils/flagsParser.js";
 import { pathResolver } from "../utils/pathResolver.js";
 import { logFailedOperation } from "../utils/logs.js";
