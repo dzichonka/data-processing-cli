@@ -1,0 +1,5 @@
+### How Does the Node.js Event Loop Work Under the Hood?
+
+Understanding the event loop is very important at the enterprise level. Node.js operates on a single-threaded event loop with non-blocking I/O. It’s efficient for high-concurrency applications. A strong candidate must explain the different phases of the event loop (timers, pending callbacks, poll, check, and close callbacks) and distinguish between macrotasks and microtasks (Promises). They should also clarify how blocking operations freeze the loop and impact performance across all requests.
+
+CTOs also need to evaluate whether the candidate has architectural thinking capabilities. Red flags include vague definitions or the belief that Node.js is “multi-threaded by default.”
